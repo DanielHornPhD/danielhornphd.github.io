@@ -53,13 +53,14 @@
   </section>
 
   <section>
-    <h2>What I Do</h2>
+    <h2>Services</h2>
     <ul>
       <li>Program evaluation and impact measurement</li>
       <li>Survey design, data cleaning, and qualitative coding</li>
       <li>Research operations, protocols, repositories, and workflow improvement</li>
       <li>Training systems, curriculum development, and technical assistance</li>
       <li>Human-services, policy, and social-impact reporting</li>
+      <li>Data Governance</li>
     </ul>
   </section>
 
