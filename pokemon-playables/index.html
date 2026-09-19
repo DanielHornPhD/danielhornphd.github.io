@@ -1,144 +1,273 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Explore playable Pokémon TCG cards for Expanded and Gym Leader Challenge. Search by card, set, role, format, or Pokémon type."><title>Pokémon Playables | Daniel Horn</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore playable Pokémon TCG cards for current Standard, Expanded, and Gym Leader Challenge. Search by card, set, role, format, or Pokémon type.">
+<title>Pokémon Playables | Daniel Horn</title>
 <style>
-:root{--ink:#252236;--muted:#655f73;--purple:#613cc0;--line:#e4dfed;--paper:#faf9fd}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--purple);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #9775ed;outline-offset:4px}.skip{position:absolute;top:-80px;left:20px;background:white;padding:8px}.skip:focus{top:10px}.wrap{max-width:1240px;padding:0 32px;margin:auto}nav{display:flex;justify-content:space-between;padding:24px 0;border-bottom:1px solid var(--line);font-size:.9rem}nav a{text-decoration:none}header{padding:58px 0 32px;max-width:820px}.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;font-weight:750;color:var(--purple)}h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.08;letter-spacing:-.055em;margin:16px 0}header p{font-size:1.15rem;color:var(--muted);max-width:690px}.controls{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin:26px 0 16px}.fields{display:grid;grid-template-columns:2fr 1fr 1.2fr 1fr;gap:16px}label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:7px}input,select{font:inherit;width:100%;height:46px;background:#faf9fd;border:1px solid #d6cfdf;border-radius:8px;padding:9px 12px;color:var(--ink)}.results{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--muted);padding-top:18px}button{background:white;border:1px solid var(--line);border-radius:7px;padding:7px 12px;color:var(--purple);font:inherit;cursor:pointer}.tablebox{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px}table{width:100%;border-collapse:collapse;text-align:left}th{font-size:.73rem;letter-spacing:.06em;text-transform:uppercase;background:#f1eef6;padding:16px 20px;color:var(--muted)}td{padding:17px 20px;border-top:1px solid #eeebf3;font-size:.88rem;vertical-align:top}td:first-child{width:29%;min-width:230px}td:nth-child(2){width:24%}td:nth-child(3){width:29%}td a{font-weight:700;text-decoration:none}td small{display:block;color:var(--muted);margin-left:36px;font-size:.75rem}.number{display:inline-block;color:#9690a3;width:36px;font-size:.72rem;font-variant-numeric:tabular-nums}.tag{display:inline-block;font-size:.69rem;font-weight:650;border-radius:5px;padding:3px 7px;margin:0 3px 5px 0;white-space:nowrap}.expanded{background:#efe9fb;color:#603bb0}.glc{background:#e6f3ef;color:#236d57}tbody tr:hover{background:#fcfbff}[hidden]{display:none!important}.empty{padding:35px;text-align:center;color:var(--muted)}summary{cursor:pointer;font-weight:650}.subnote{font-size:.84rem;color:var(--muted)}footer{padding:26px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}footer p{max-width:900px}.footlinks{display:flex;gap:22px}caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}@media(max-width:800px){.wrap{padding:0 18px}header{padding-top:35px}.fields{grid-template-columns:1fr 1fr}td,th{padding:13px}.tablebox table{min-width:740px}}@media(max-width:450px){.fields{grid-template-columns:1fr}.controls{padding:16px}}@media print{nav,.controls,.skip,.footlinks{display:none}.wrap{max-width:none;padding:0}header{padding:0}h1{font-size:30px}.tablebox{overflow:visible;border:0}table{font-size:10px}td,th{padding:6px}a{color:inherit}tr{break-inside:avoid}}
-.sources{margin:30px 0;padding:20px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}.sources summary{color:var(--ink)}.sources p{max-width:900px}</style></head><body><a class="skip" href="#cards">Skip to card reference</a><div class="wrap"><nav aria-label="Site navigation"><a href="../">← Daniel Horn</a><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/tree/main/pokemon-playables">View on GitHub ↗</a></nav>
-<header><div class="eyebrow">Expanded &amp; Gym Leader Challenge</div><h1>Pokémon Playables</h1><p>Discover staples, support Pokémon, and key attackers for Expanded and GLC decks.</p></header>
+:root{--ink:#252236;--muted:#655f73;--purple:#613cc0;--line:#e4dfed;--paper:#faf9fd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:var(--purple);text-underline-offset:4px}a:hover{text-decoration-thickness:2px}
+a:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #9775ed;outline-offset:4px}
+.skip{position:absolute;top:-80px;left:20px;background:white;padding:8px}.skip:focus{top:10px}
+.wrap{max-width:1240px;padding:0 32px;margin:auto}
+nav{display:flex;justify-content:space-between;padding:24px 0;border-bottom:1px solid var(--line);font-size:.9rem}nav a{text-decoration:none}
+header{padding:58px 0 26px;max-width:880px}
+.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:.75rem;font-weight:750;color:var(--purple)}
+h1{font-size:clamp(2.5rem,6vw,4.7rem);line-height:1.08;letter-spacing:-.055em;margin:16px 0}
+header p{font-size:1.15rem;color:var(--muted);max-width:760px}
+.rotation{display:inline-flex;gap:8px;align-items:center;margin-top:8px;padding:7px 10px;border:1px solid #e8d7a8;border-radius:999px;background:#fff8e6;color:#6f5311;font-size:.82rem;font-weight:650}
+.controls{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin:26px 0 16px}
+.fields{display:grid;grid-template-columns:2fr 1fr 1.2fr 1fr;gap:16px}
+label{display:block;font-size:.78rem;font-weight:700;color:var(--muted);margin-bottom:7px}
+input,select{font:inherit;width:100%;height:46px;background:#faf9fd;border:1px solid #d6cfdf;border-radius:8px;padding:9px 12px;color:var(--ink)}
+.results{display:flex;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--muted);padding-top:18px}
+button{background:white;border:1px solid var(--line);border-radius:7px;padding:7px 12px;color:var(--purple);font:inherit;cursor:pointer}
+.tablebox{overflow-x:auto;background:#fff;border:1px solid var(--line);border-radius:14px}
+table{width:100%;border-collapse:collapse;text-align:left}
+th{font-size:.73rem;letter-spacing:.06em;text-transform:uppercase;background:#f1eef6;padding:16px 20px;color:var(--muted)}
+td{padding:17px 20px;border-top:1px solid #eeebf3;font-size:.88rem;vertical-align:top}
+td:first-child{width:29%;min-width:230px}td:nth-child(2){width:24%}td:nth-child(3){width:29%}
+td a{font-weight:700;text-decoration:none}td small{display:block;color:var(--muted);margin-left:36px;font-size:.75rem}
+.number{display:inline-block;color:#9690a3;width:36px;font-size:.72rem;font-variant-numeric:tabular-nums}
+.tag{display:inline-block;font-size:.69rem;font-weight:650;border-radius:5px;padding:3px 7px;margin:0 3px 5px 0;white-space:nowrap}
+.standard{background:#fff0c9;color:#79570c}.expanded{background:#efe9fb;color:#603bb0}.glc{background:#e6f3ef;color:#236d57}
+tbody tr:hover{background:#fcfbff}[hidden]{display:none!important}.empty{padding:35px;text-align:center;color:var(--muted)}
+.benchmarks{margin:26px 0;padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.benchmarks h2{font-size:1rem;margin:0 0 8px}.benchmarks p{margin:0 0 10px;color:var(--muted);font-size:.88rem}
+.decklinks{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.86rem}.decklinks a{font-weight:650;text-decoration:none}
+summary{cursor:pointer;font-weight:650}
+.sources{margin:30px 0;padding:20px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.88rem}.sources summary{color:var(--ink)}.sources p{max-width:950px}
+footer{padding:26px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.8rem}footer p{max-width:900px}.footlinks{display:flex;gap:22px}
+caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+@media(max-width:800px){.wrap{padding:0 18px}header{padding-top:35px}.fields{grid-template-columns:1fr 1fr}td,th{padding:13px}.tablebox table{min-width:740px}}
+@media(max-width:450px){.fields{grid-template-columns:1fr}.controls{padding:16px}}
+@media print{nav,.controls,.skip,.footlinks,.benchmarks{display:none}.wrap{max-width:none;padding:0}header{padding:0}h1{font-size:30px}.tablebox{overflow:visible;border:0}table{font-size:10px}td,th{padding:6px}a{color:inherit}tr{break-inside:avoid}}
+</style>
+</head>
+<body>
+<a class="skip" href="#cards">Skip to card reference</a>
+<div class="wrap">
+<nav aria-label="Site navigation"><a href="../">← Daniel Horn</a><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/tree/main/pokemon-playables">View on GitHub ↗</a></nav>
+<header>
+<div class="eyebrow">Standard · Expanded · Gym Leader Challenge</div>
+<h1>Pokémon Playables</h1>
+<p>Discover current Standard staples alongside Expanded and Gym Leader Challenge cards. Use the filters to identify cards worth pulling aside when sorting collections or building decks.</p>
+<div class="rotation">Current Standard: H / I / J regulation marks · updated September 18, 2026</div>
+</header>
 <main id="cards" aria-label="Card reference">
-<div class="controls" id="controls" hidden><div class="fields"><div><label for="search">Search cards, sets, or roles</label><input type="search" id="search" placeholder="Try Float Stone, BRS, or draw…"></div><div><label for="format">Format</label><select id="format"><option value="">All formats</option value="expanded">Expanded</option><option value="glc">GLC</option></select></div><div><label for="group">Reference section</label><select id="group"><option value="">All sections</option><option>Trainers &amp; Energy</option><option>GLC Pokémon</option><option>Expanded picks</option></select></div><div><label for="type">Pokémon type</label><select id="type"><option value="">All types / Trainers</option><option>Grass</option><option>Water</option><option>Psychic</option><option>Colorless</option><option>Lightning</option><option>Darkness</option><option>Metal</option><option>Fighting</option><option>Fire</option><option>Dragon</option></select></div></div><div class="results"><span id="count" role="status" aria-live="polite">110 cards</span><button id="reset" type="button">Clear filters</button></div></div>
-<noscript><p>Enable JavaScript to search and filter the reference.</p></noscript><div class="tablebox"><table><caption>Expanded and GLC Pokémon playable reference</caption><thead><tr><th scope="col">Card</th><th scope="col">Example printing</th><th scope="col">Role / identification</th><th scope="col">Format</th></tr></thead><tbody><tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">001</span><a href="https://limitlesstcg.com/cards/PHF/109">VS Seeker</a><small>Trainers &amp; Energy</small></td><td>Phantom Forces (PHF) #109</td><td>Reuse Supporters</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">002</span><a href="https://limitlesstcg.com/cards/PHF/92">Battle Compressor</a><small>Trainers &amp; Energy</small></td><td>Phantom Forces (PHF) #92</td><td>Prepare discard combos</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">003</span><a href="https://limitlesstcg.com/cards/BKT/137">Float Stone</a><small>Trainers &amp; Energy</small></td><td>BREAKthrough (BKT) #137</td><td>Free retreat</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">004</span><a href="https://limitlesstcg.com/cards/BUS/115">Guzma</a><small>Trainers &amp; Energy</small></td><td>Burning Shadows (BUS) #115</td><td>Gust and switch</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">005</span><a href="https://limitlesstcg.com/cards/FCO/105">N</a><small>Trainers &amp; Energy</small></td><td>Fates Collide (FCO) #105</td><td>Draw and disrupt</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">006</span><a href="https://limitlesstcg.com/cards/PLS/118">Colress</a><small>Trainers &amp; Energy</small></td><td>Plasma Storm (PLS) #118</td><td>Bench-based draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">007</span><a href="https://limitlesstcg.com/cards/PRC/141">Teammates</a><small>Trainers &amp; Energy</small></td><td>Primal Clash (PRC) #141</td><td>Search after knockout</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">008</span><a href="https://limitlesstcg.com/cards/FLI/113">Mysterious Treasure</a><small>Trainers &amp; Energy</small></td><td>Forbidden Light (FLI) #113</td><td>Psychic/Dragon search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">009</span><a href="https://limitlesstcg.com/cards/GRI/125">Field Blower</a><small>Trainers &amp; Energy</small></td><td>Guardians Rising (GRI) #125</td><td>Remove Tools/Stadiums</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">010</span><a href="https://limitlesstcg.com/cards/GRI/130">Rescue Stretcher</a><small>Trainers &amp; Energy</small></td><td>Guardians Rising (GRI) #130</td><td>Recover Pokémon</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">011</span><a href="https://limitlesstcg.com/cards/SSH/179">Quick Ball</a><small>Trainers &amp; Energy</small></td><td>Sword &amp; Shield (SSH) #179</td><td>Basic Pokémon search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">012</span><a href="https://limitlesstcg.com/cards/BRS/150">Ultra Ball</a><small>Trainers &amp; Energy</small></td><td>Brilliant Stars (BRS) #150</td><td>Any Pokémon search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">013</span><a href="https://limitlesstcg.com/cards/BST/129">Level Ball</a><small>Trainers &amp; Energy</small></td><td>Battle Styles (BST) #129</td><td>Small Pokémon search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">014</span><a href="https://limitlesstcg.com/cards/SVI/181">Nest Ball</a><small>Trainers &amp; Energy</small></td><td>Scarlet &amp; Violet (SVI) #181</td><td>Bench a Basic</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">015</span><a href="https://limitlesstcg.com/cards/SSH/163">Evolution Incense</a><small>Trainers &amp; Energy</small></td><td>Sword &amp; Shield (SSH) #163</td><td>Evolution search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">016</span><a href="https://limitlesstcg.com/cards/ASR/146">Hisuian Heavy Ball</a><small>Trainers &amp; Energy</small></td><td>Astral Radiance (ASR) #146</td><td>Find prized Basics</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">017</span><a href="https://limitlesstcg.com/cards/TEF/144">Buddy-Buddy Poffin</a><small>Trainers &amp; Energy</small></td><td>Temporal Forces (TEF) #144</td><td>Set up small Basics</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">018</span><a href="https://limitlesstcg.com/cards/FST/225">Battle VIP Pass</a><small>Trainers &amp; Energy</small></td><td>Fusion Strike (FST) #225</td><td>First-turn setup</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">019</span><a href="https://limitlesstcg.com/cards/SFA/61">Night Stretcher</a><small>Trainers &amp; Energy</small></td><td>Shrouded Fable (SFA) #61</td><td>Immediate recovery</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">020</span><a href="https://limitlesstcg.com/cards/PAL/188">Super Rod</a><small>Trainers &amp; Energy</small></td><td>Paldea Evolved (PAL) #188</td><td>Recycle Pokémon/Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">021</span><a href="https://limitlesstcg.com/cards/SVI/166">Arven</a><small>Trainers &amp; Energy</small></td><td>Scarlet &amp; Violet (SVI) #166</td><td>Item and Tool search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">022</span><a href="https://limitlesstcg.com/cards/CEC/193">Guzma &amp; Hala</a><small>Trainers &amp; Energy</small></td><td>Cosmic Eclipse (CEC) #193</td><td>Stadium/Tool/Energy package</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">023</span><a href="https://limitlesstcg.com/cards/CEC/189">Cynthia &amp; Caitlin</a><small>Trainers &amp; Energy</small></td><td>Cosmic Eclipse (CEC) #189</td><td>Supporter recovery and draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">024</span><a href="https://limitlesstcg.com/cards/EVS/152">Raihan</a><small>Trainers &amp; Energy</small></td><td>Evolving Skies (EVS) #152</td><td>Comeback acceleration/search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">025</span><a href="https://limitlesstcg.com/cards/PAL/185">Iono</a><small>Trainers &amp; Energy</small></td><td>Paldea Evolved (PAL) #185</td><td>Draw and disrupt</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">026</span><a href="https://limitlesstcg.com/cards/SSH/169">Marnie</a><small>Trainers &amp; Energy</small></td><td>Sword &amp; Shield (SSH) #169</td><td>Hand disruption</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">027</span><a href="https://limitlesstcg.com/cards/CIN/95">Gladion</a><small>Trainers &amp; Energy</small></td><td>Crimson Invasion (CIN) #95</td><td>Retrieve a prized card</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="false" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">028</span><a href="https://limitlesstcg.com/cards/AOR/75">Hex Maniac</a><small>Trainers &amp; Energy</small></td><td>Ancient Origins (AOR) #75</td><td>Temporary Ability lock</td><td> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="false" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">029</span><a href="https://limitlesstcg.com/cards/RCL/165">Scoop Up Net</a><small>Trainers &amp; Energy</small></td><td>Rebel Clash (RCL) #165</td><td>Reuse non-rule-box Pokémon</td><td> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="false" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">030</span><a href="https://limitlesstcg.com/cards/UNM/206">Reset Stamp</a><small>Trainers &amp; Energy</small></td><td>Unified Minds (UNM) #206</td><td>Late-game hand disruption</td><td> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">031</span><a href="https://limitlesstcg.com/cards/BKT/146">Professor&#x27;s Letter</a><small>Trainers &amp; Energy</small></td><td>BREAKthrough (BKT) #146</td><td>Basic Energy search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">032</span><a href="https://limitlesstcg.com/cards/CEC/206">Tag Call</a><small>Trainers &amp; Energy</small></td><td>Cosmic Eclipse (CEC) #206</td><td>Find TAG TEAM cards</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">033</span><a href="https://limitlesstcg.com/cards/XY/121">Muscle Band</a><small>Trainers &amp; Energy</small></td><td>XY (XY) #121</td><td>Increase attack damage</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">034</span><a href="https://limitlesstcg.com/cards/UNM/211">U-Turn Board</a><small>Trainers &amp; Energy</small></td><td>Unified Minds (UNM) #211</td><td>Reusable retreat reduction</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">035</span><a href="https://limitlesstcg.com/cards/DAA/160">Cape of Toughness</a><small>Trainers &amp; Energy</small></td><td>Darkness Ablaze (DAA) #160</td><td>Increase Basic Pokémon HP</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">036</span><a href="https://limitlesstcg.com/cards/CEC/187">Chaotic Swell</a><small>Trainers &amp; Energy</small></td><td>Cosmic Eclipse (CEC) #187</td><td>Stadium disruption</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">037</span><a href="https://limitlesstcg.com/cards/BKT/145">Parallel City</a><small>Trainers &amp; Energy</small></td><td>BREAKthrough (BKT) #145</td><td>Restrict Bench space</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">038</span><a href="https://limitlesstcg.com/cards/ASR/147">Irida</a><small>Trainers &amp; Energy</small></td><td>Astral Radiance (ASR) #147</td><td>Water Pokémon + Item</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">039</span><a href="https://limitlesstcg.com/cards/ASR/139">Dark Patch</a><small>Trainers &amp; Energy</small></td><td>Astral Radiance (ASR) #139</td><td>Darkness acceleration</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">040</span><a href="https://limitlesstcg.com/cards/SSH/170">Metal Saucer</a><small>Trainers &amp; Energy</small></td><td>Sword &amp; Shield (SSH) #170</td><td>Metal acceleration</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">041</span><a href="https://limitlesstcg.com/cards/ROS/97">Double Dragon Energy</a><small>Trainers &amp; Energy</small></td><td>Roaring Skies (ROS) #97</td><td>Two Energy for Dragons</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">042</span><a href="https://limitlesstcg.com/cards/CIN/100">Counter Energy</a><small>Trainers &amp; Energy</small></td><td>Crimson Invasion (CIN) #100</td><td>Comeback Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">043</span><a href="https://limitlesstcg.com/cards/PAL/192">Reversal Energy</a><small>Trainers &amp; Energy</small></td><td>Paldea Evolved (PAL) #192</td><td>Evolution comeback Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">044</span><a href="https://limitlesstcg.com/cards/RCL/173">Speed Lightning Energy</a><small>Trainers &amp; Energy</small></td><td>Rebel Clash (RCL) #173</td><td>Energy plus draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">045</span><a href="https://limitlesstcg.com/cards/FFI/104">Strong Energy</a><small>Trainers &amp; Energy</small></td><td>Furious Fists (FFI) #104</td><td>Increase Fighting damage</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">046</span><a href="https://limitlesstcg.com/cards/STS/105">Special Charge</a><small>Trainers &amp; Energy</small></td><td>Steam Siege (STS) #105</td><td>Recover Special Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">047</span><a href="https://limitlesstcg.com/cards/ASC/198">Poké Pad</a><small>Trainers &amp; Energy</small></td><td>Ascended Heroes (ASC) #198</td><td>Non-rule-box Pokémon search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">048</span><a href="https://limitlesstcg.com/cards/MEG/119">Lillie&#x27;s Determination</a><small>Trainers &amp; Energy</small></td><td>Mega Evolution (MEG) #119</td><td>Refresh hand; stronger at six Prizes</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">049</span><a href="https://limitlesstcg.com/cards/SCR/133">Crispin</a><small>Trainers &amp; Energy</small></td><td>Stellar Crown (SCR) #133</td><td>Mixed-Energy acceleration</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Trainers &amp; Energy" data-type=""><td><span class="number">050</span><a href="https://limitlesstcg.com/cards/LOT/187">Net Ball</a><small>Trainers &amp; Energy</small></td><td>Lost Thunder (LOT) #187</td><td>Grass Basic/Energy search</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Grass"><td><span class="number">051</span><a href="https://limitlesstcg.com/cards/BRS/7">Grotle</a><small>Grass</small></td><td>Brilliant Stars (BRS) #7</td><td>Sun-Drenched Shell; search Grass Pokémon</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Grass"><td><span class="number">052</span><a href="https://limitlesstcg.com/cards/BRS/8">Torterra</a><small>Grass</small></td><td>Brilliant Stars (BRS) #8</td><td>Evopress; evolution-board attacker</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Grass"><td><span class="number">053</span><a href="https://limitlesstcg.com/cards/DRX/15">Roserade</a><small>Grass</small></td><td>Dragons Exalted (DRX) #15</td><td>Le Parfum; search any card</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Grass"><td><span class="number">054</span><a href="https://limitlesstcg.com/cards/BST/8">Cherrim</a><small>Grass</small></td><td>Battle Styles (BST) #8</td><td>Spring Bloom; attach Grass Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Grass"><td><span class="number">055</span><a href="https://limitlesstcg.com/cards/SSH/14">Rillaboom</a><small>Grass</small></td><td>Sword &amp; Shield (SSH) #14</td><td>Voltage Beat; accelerate Grass Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Water"><td><span class="number">056</span><a href="https://limitlesstcg.com/cards/SSH/64">Frosmoth</a><small>Water</small></td><td>Sword &amp; Shield (SSH) #64</td><td>Ice Dance; attach Water Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Water"><td><span class="number">057</span><a href="https://limitlesstcg.com/cards/PAL/60">Baxcalibur</a><small>Water</small></td><td>Paldea Evolved (PAL) #60</td><td>Super Cold; attach Water Energy</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Water"><td><span class="number">058</span><a href="https://limitlesstcg.com/cards/BKT/33">Octillery</a><small>Water</small></td><td>BREAKthrough (BKT) #33</td><td>Abyssal Hand; refill hand</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Water"><td><span class="number">059</span><a href="https://limitlesstcg.com/cards/SSH/56">Drizzile</a><small>Water</small></td><td>Sword &amp; Shield (SSH) #56</td><td>Shady Dealings; search a Trainer</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Water"><td><span class="number">060</span><a href="https://limitlesstcg.com/cards/SSH/58">Inteleon</a><small>Water</small></td><td>Sword &amp; Shield (SSH) #58</td><td>Shady Dealings; search two Trainers</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Water"><td><span class="number">061</span><a href="https://limitlesstcg.com/cards/BRS/41">Manaphy</a><small>Water</small></td><td>Brilliant Stars (BRS) #41</td><td>Wave Veil; protect Bench from damage</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Psychic"><td><span class="number">062</span><a href="https://limitlesstcg.com/cards/SIT/68">Kirlia</a><small>Psychic</small></td><td>Silver Tempest (SIT) #68</td><td>Refinement; discard and draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Psychic"><td><span class="number">063</span><a href="https://limitlesstcg.com/cards/ASR/62">Gallade</a><small>Psychic</small></td><td>Astral Radiance (ASR) #62</td><td>Buddy Catch; search Supporters</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Psychic"><td><span class="number">064</span><a href="https://limitlesstcg.com/cards/FLI/51">Malamar</a><small>Psychic</small></td><td>Forbidden Light (FLI) #51</td><td>Psychic Recharge; recover Psychic Energy into play</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Psychic"><td><span class="number">065</span><a href="https://limitlesstcg.com/cards/PAR/72">Xatu</a><small>Psychic</small></td><td>Paradox Rift (PAR) #72</td><td>Clairvoyant Sense; accelerate and draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Psychic"><td><span class="number">066</span><a href="https://limitlesstcg.com/cards/TWM/95">Munkidori</a><small>Psychic</small></td><td>Twilight Masquerade (TWM) #95</td><td>Adrena-Brain; move damage counters</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Psychic"><td><span class="number">067</span><a href="https://limitlesstcg.com/cards/LOT/97">Giratina</a><small>Psychic</small></td><td>Lost Thunder (LOT) #97</td><td>Distortion Door; return from discard and spread</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Colorless"><td><span class="number">068</span><a href="https://limitlesstcg.com/cards/BRS/121">Bibarel</a><small>Colorless</small></td><td>Brilliant Stars (BRS) #121</td><td>Industrious Incisors; refill hand</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Colorless"><td><span class="number">069</span><a href="https://limitlesstcg.com/cards/SSH/147">Cinccino</a><small>Colorless</small></td><td>Sword &amp; Shield (SSH) #147</td><td>Make Do; discard and draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Colorless"><td><span class="number">070</span><a href="https://limitlesstcg.com/cards/SUM/113">Oranguru</a><small>Colorless</small></td><td>Sun &amp; Moon (SUM) #113</td><td>Instruct; refill a small hand</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Colorless"><td><span class="number">071</span><a href="https://limitlesstcg.com/cards/SCR/118">Fan Rotom</a><small>Colorless</small></td><td>Stellar Crown (SCR) #118</td><td>Fan Call; early Colorless setup</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Colorless"><td><span class="number">072</span><a href="https://limitlesstcg.com/cards/SVI/151">Skwovet</a><small>Colorless</small></td><td>Scarlet &amp; Violet (SVI) #151</td><td>Nest Stash; refresh hand for draw engines</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Lightning"><td><span class="number">073</span><a href="https://limitlesstcg.com/cards/EVS/55">Flaaffy</a><small>Lightning</small></td><td>Evolving Skies (EVS) #55</td><td>Dynamotor; recover Lightning Energy into play</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Lightning"><td><span class="number">074</span><a href="https://limitlesstcg.com/cards/NVI/40">Eelektrik</a><small>Lightning</small></td><td>Noble Victories (NVI) #40</td><td>Dynamotor; recover Lightning Energy into play</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Lightning"><td><span class="number">075</span><a href="https://limitlesstcg.com/cards/LOT/82">Zebstrika</a><small>Lightning</small></td><td>Lost Thunder (LOT) #82</td><td>Sprint; discard hand and draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Lightning"><td><span class="number">076</span><a href="https://limitlesstcg.com/cards/SMP/30">Tapu Koko</a><small>Lightning</small></td><td>Sun &amp; Moon Promos (SMP) #30</td><td>Flying Flip; spread damage</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Darkness"><td><span class="number">077</span><a href="https://limitlesstcg.com/cards/CEC/136">Guzzlord</a><small>Darkness</small></td><td>Cosmic Eclipse (CEC) #136</td><td>Red Banquet; take an extra Prize</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Darkness"><td><span class="number">078</span><a href="https://limitlesstcg.com/cards/EVS/93">Galarian Moltres</a><small>Darkness</small></td><td>Evolving Skies (EVS) #93</td><td>Malevolent Charge / Fiery Wrath; late-game attacker</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Darkness"><td><span class="number">079</span><a href="https://limitlesstcg.com/cards/BRS/91">Liepard</a><small>Darkness</small></td><td>Brilliant Stars (BRS) #91</td><td>Trade; discard and draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Darkness"><td><span class="number">080</span><a href="https://limitlesstcg.com/cards/PFL/68">Toxtricity</a><small>Darkness</small></td><td>Phantasmal Flames (PFL) #68</td><td>Sinister Surge; Darkness acceleration</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Metal"><td><span class="number">081</span><a href="https://limitlesstcg.com/cards/PHF/61">Bronzong</a><small>Metal</small></td><td>Phantom Forces (PHF) #61</td><td>Metal Links; recover Metal Energy into play</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Metal"><td><span class="number">082</span><a href="https://limitlesstcg.com/cards/SVI/142">Revavroom</a><small>Metal</small></td><td>Scarlet &amp; Violet (SVI) #142</td><td>Rumbling Engine; discard Energy and draw</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Metal"><td><span class="number">083</span><a href="https://limitlesstcg.com/cards/TEU/99">Jirachi</a><small>Metal</small></td><td>Team Up (TEU) #99</td><td>Stellar Wish; find Trainers</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Fighting"><td><span class="number">084</span><a href="https://limitlesstcg.com/cards/MEG/74">Lunatone</a><small>Fighting</small></td><td>Mega Evolution (MEG) #74</td><td>Lunar Cycle; draw with Solrock</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Fighting"><td><span class="number">085</span><a href="https://limitlesstcg.com/cards/MEG/75">Solrock</a><small>Fighting</small></td><td>Mega Evolution (MEG) #75</td><td>enable Lunatone; attack</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Fighting"><td><span class="number">086</span><a href="https://limitlesstcg.com/cards/SVI/114">Lucario</a><small>Fighting</small></td><td>Scarlet &amp; Violet (SVI) #114</td><td>Avenging Knuckle; retaliation attacker</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Fire"><td><span class="number">087</span><a href="https://limitlesstcg.com/cards/CES/24">Magcargo</a><small>Fire</small></td><td>Celestial Storm (CES) #24</td><td>Smooth Over; place desired card atop deck</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Fire"><td><span class="number">088</span><a href="https://limitlesstcg.com/cards/PGO/10">Charizard</a><small>Fire</small></td><td>Pokémon GO (PGO) #10</td><td>Burn Brightly; double Fire Energy output</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Dragon"><td><span class="number">089</span><a href="https://limitlesstcg.com/cards/DRX/89">Gabite</a><small>Dragon</small></td><td>Dragons Exalted (DRX) #89</td><td>Dragon Call; search Dragon Pokémon</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="GLC Pokémon" data-type="Dragon"><td><span class="number">090</span><a href="https://limitlesstcg.com/cards/TWM/131">Tatsugiri</a><small>Dragon</small></td><td>Twilight Masquerade (TWM) #131</td><td>Attract Customers; find Supporters</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Psychic"><td><span class="number">091</span><a href="https://limitlesstcg.com/cards/GRI/60">Tapu Lele-GX</a><small>Psychic</small></td><td>Guardians Rising (GRI) #60</td><td>Wonder Tag</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Lightning"><td><span class="number">092</span><a href="https://limitlesstcg.com/cards/UNB/57">Dedenne-GX</a><small>Lightning</small></td><td>Unbroken Bonds (UNB) #57</td><td>Dedechange</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Darkness"><td><span class="number">093</span><a href="https://limitlesstcg.com/cards/DAA/104">Crobat V</a><small>Darkness</small></td><td>Darkness Ablaze (DAA) #104</td><td>Dark Asset</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Colorless"><td><span class="number">094</span><a href="https://limitlesstcg.com/cards/PAL/169">Squawkabilly ex</a><small>Colorless</small></td><td>Paldea Evolved (PAL) #169</td><td>Squawk and Seize</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Dragon"><td><span class="number">095</span><a href="https://limitlesstcg.com/cards/SIT/135">Regidrago V</a><small>Dragon</small></td><td>Silver Tempest (SIT) #135</td><td>Evolves into Regidrago VSTAR</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Dragon"><td><span class="number">096</span><a href="https://limitlesstcg.com/cards/SIT/136">Regidrago VSTAR</a><small>Dragon</small></td><td>Silver Tempest (SIT) #136</td><td>Dragon attack toolbox</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Psychic"><td><span class="number">097</span><a href="https://limitlesstcg.com/cards/CRE/74">Shadow Rider Calyrex V</a><small>Psychic</small></td><td>Chilling Reign (CRE) #74</td><td>Evolves into Calyrex VMAX</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Psychic"><td><span class="number">098</span><a href="https://limitlesstcg.com/cards/CRE/75">Shadow Rider Calyrex VMAX</a><small>Psychic</small></td><td>Chilling Reign (CRE) #75</td><td>Underworld Door</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Psychic"><td><span class="number">099</span><a href="https://limitlesstcg.com/cards/SSP/76">Latias ex</a><small>Psychic</small></td><td>Surging Sparks (SSP) #76</td><td>Skyliner</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Dragon"><td><span class="number">100</span><a href="https://limitlesstcg.com/cards/CRZ/105">Radiant Eternatus</a><small>Dragon</small></td><td>Crown Zenith (CRZ) #105</td><td>Climactic Gate</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type="Dragon"><td><span class="number">101</span><a href="https://limitlesstcg.com/cards/UPR/100">Dialga-GX</a><small>Dragon</small></td><td>Ultra Prism (UPR) #100</td><td>Timeless-GX; Dragon type</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Expanded picks" data-type="Psychic"><td><span class="number">102</span><a href="https://limitlesstcg.com/cards/LTR/68">Garbodor</a><small>Psychic</small></td><td>Legendary Treasures (LTR) #68</td><td>Garbotoxin; Tool-based Ability lock</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Expanded picks" data-type="Psychic"><td><span class="number">103</span><a href="https://limitlesstcg.com/cards/PHF/36">Wobbuffet</a><small>Psychic</small></td><td>Phantom Forces (PHF) #36</td><td>Bide Barricade</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Expanded picks" data-type="Psychic"><td><span class="number">104</span><a href="https://limitlesstcg.com/cards/UNB/81">Marshadow</a><small>Psychic</small></td><td>Unbroken Bonds (UNB) #81</td><td>Resetting Hole; Stadium removal</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Expanded picks" data-type="Grass"><td><span class="number">105</span><a href="https://limitlesstcg.com/cards/PRE/4">Budew</a><small>Grass</small></td><td>Prismatic Evolutions (PRE) #4</td><td>Itchy Pollen; Item lock</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="true" data-group="Expanded picks" data-type="Dragon"><td><span class="number">106</span><a href="https://limitlesstcg.com/cards/SFA/47">Kyurem</a><small>Dragon</small></td><td>Shrouded Fable (SFA) #47</td><td>Trifrost; Regidrago attack target</td><td> <span class="tag expanded">Expanded</span> <span class="tag glc">GLC</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type=""><td><span class="number">107</span><a href="https://limitlesstcg.com/cards/PHF/93">Dimension Valley</a><small>Expanded picks</small></td><td>Phantom Forces (PHF) #93</td><td>Psychic attack discount; GLC banned</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type=""><td><span class="number">108</span><a href="https://limitlesstcg.com/cards/TEF/157">Prime Catcher</a><small>Expanded picks</small></td><td>Temporal Forces (TEF) #157</td><td>ACE SPEC gust/switch</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type=""><td><span class="number">109</span><a href="https://limitlesstcg.com/cards/TWM/163">Secret Box</a><small>Expanded picks</small></td><td>Twilight Masquerade (TWM) #163</td><td>ACE SPEC search package</td><td> <span class="tag expanded">Expanded</span></td></tr>
-<tr data-expanded="true" data-glc="false" data-group="Expanded picks" data-type=""><td><span class="number">110</span><a href="https://limitlesstcg.com/cards/SIT/156">Forest Seal Stone</a><small>Expanded picks</small></td><td>Silver Tempest (SIT) #156</td><td>VSTAR search; needs Pokémon V</td><td><span class="tag expanded">Expanded focus</span></td></tr></tbody></table><p id="empty" class="empty" hidden>No cards match. Try a broader search or clear the filters.</p></div>
-<details class="sources"><summary>Sources &amp; format notes</summary><p>Selected from published <a href="https://limitlesstcg.com/tournaments/566">May 2026 Aichi deck lists</a>, the <a href="https://gymleaderchallenge.com/guide">official GLC guides</a>, and CardBoard Warriors’ <a href="https://cardboardwarriors.net/spotlight/glc-modern-hydro-pump/">Hydro Dance</a> and <a href="https://cardboardwarriors.net/spotlight/glc-munkidori-psychic-brooke/">Munkidori Psychic</a> analyses. This is a curated selection, not a usage ranking. Reviewed September 19, 2026.</p><p>Format labels indicate where a card is legal or useful; its strength depends on the deck. The GLC Pokémon section emphasizes GLC play. Expanded refers to the physical BW-on format. Check the <a href="https://gymleaderchallenge.com/ban-list">GLC ban list</a> and linked card pages for legality and printing details.</p></details></main>
-<footer><p>Pokémon Playables · Daniel Horn</p><div class="footlinks"><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/blob/main/pokemon-playables/README.md">Full written reference</a><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/issues">Suggest a correction</a></div><p>Independent community reference. Pokémon and related names belong to their respective owners. Not affiliated with The Pokémon Company or Limitless TCG.</p></footer></div>
+<div class="controls" id="controls">
+<div class="fields">
+<div><label for="search">Search cards, sets, or roles</label><input type="search" id="search" placeholder="Try Dragapult, TWM, Hilda, or draw…"></div>
+<div><label for="format">Format</label><select id="format"><option value="">All formats</option><option value="standard">Standard (current)</option><option value="expanded">Expanded</option><option value="glc">GLC</option></select></div>
+<div><label for="group">Reference section</label><select id="group"><option value="">All sections</option><option>Standard picks</option><option>Trainers &amp; Energy</option><option>GLC Pokémon</option><option>Expanded picks</option></select></div>
+<div><label for="type">Pokémon type</label><select id="type"><option value="">All types / Trainers</option><option>Grass</option><option>Water</option><option>Psychic</option><option>Colorless</option><option>Lightning</option><option>Darkness</option><option>Metal</option><option>Fighting</option><option>Fire</option><option>Dragon</option></select></div>
+</div>
+<div class="results"><span id="count" role="status" aria-live="polite"></span><button id="reset" type="button">Clear filters</button></div>
+</div>
+<noscript><p>Enable JavaScript to load, search, and filter the card reference.</p></noscript>
+<div class="tablebox"><table><caption>Standard, Expanded, and GLC Pokémon playable reference</caption><thead><tr><th scope="col">Card</th><th scope="col">Example printing</th><th scope="col">Role / identification</th><th scope="col">Format</th></tr></thead><tbody id="card-rows"></tbody></table><p id="empty" class="empty" hidden>No cards match. Try a broader search or clear the filters.</p></div>
+<section class="benchmarks" aria-labelledby="benchmarks-title">
+<h2 id="benchmarks-title">2026 Worlds Standard benchmarks</h2>
+<p>Five distinct high-finishing archetypes from the August 28 World Championships. These are useful starting points for recognizing current Standard staples.</p>
+<div class="decklinks">
+<a href="https://limitlesstcg.com/decks/list/28752">1st · Dragapult ↗</a>
+<a href="https://limitlesstcg.com/decks/list/28753">2nd · Alakazam Dudunsparce ↗</a>
+<a href="https://limitlesstcg.com/decks/list/28756">5th · Crustle ↗</a>
+<a href="https://limitlesstcg.com/decks/list/28758">8th · Basic Box ↗</a>
+<a href="https://limitlesstcg.com/decks/list/28759">9th · N's Zoroark ↗</a>
+</div>
+</section>
+<details class="sources"><summary>Sources &amp; format notes</summary>
+<p><strong>Standard:</strong> The 2026 rotation took effect April 10, 2026. Regulation mark G rotated; H, I, and J are legal, along with future marks. Older printings of a card can still be legal when an identical current printing is legal. See the <a href="https://www.pokemon.com/uk/pokemon-news/2026-pokemon-tcg-standard-format-rotation-announcement">official rotation announcement</a>. Standard selections here emphasize cards appearing in top-performing 2026 World Championships archetypes rather than every legal card.</p>
+<p><strong>Expanded / GLC:</strong> The existing reference remains a curated selection drawn from published Expanded deck lists, the <a href="https://gymleaderchallenge.com/guide">official GLC guides</a>, and community deck analysis. Expanded refers to the physical BW-on format. Check the <a href="https://gymleaderchallenge.com/ban-list">GLC ban list</a> and linked card pages for current legality and printing details.</p>
+<p>Format labels indicate where a card is useful in this reference; they are not a universal power ranking. Reviewed September 18, 2026.</p>
+</details>
+</main>
+<footer><p>Pokémon Playables · Daniel Horn</p><div class="footlinks"><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/blob/main/pokemon-playables/README.md">Full written reference</a><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/issues">Suggest a correction</a></div><p>Independent community reference. Pokémon and related names belong to their respective owners. Not affiliated with The Pokémon Company or Limitless TCG.</p></footer>
+</div>
 <script>
-const rows = [...document.querySelectorAll('tbody tr')];
-const search = document.querySelector('#search');
-const format = document.querySelector('#format');
-const group = document.querySelector('#group');
-const type = document.querySelector('#type');
-function filterCards() {
- const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
- let total = 0;
- for (const row of rows) {
-  const text = row.textContent.toLowerCase();
-  const show = words.every(word => text.includes(word)) && (!format.value || row.dataset[format.value] === 'true') && (!group.value || row.dataset.group === group.value) && (!type.value || row.dataset.type === type.value);
-  row.hidden = !show;
-  if(show) total++;
+const setNames={"PHF":"Phantom Forces","BKT":"BREAKthrough","BUS":"Burning Shadows","FCO":"Fates Collide","PLS":"Plasma Storm","PRC":"Primal Clash","FLI":"Forbidden Light","GRI":"Guardians Rising","SSH":"Sword & Shield","BRS":"Brilliant Stars","BST":"Battle Styles","SVI":"Scarlet & Violet","ASR":"Astral Radiance","TEF":"Temporal Forces","FST":"Fusion Strike","SFA":"Shrouded Fable","PAL":"Paldea Evolved","CEC":"Cosmic Eclipse","EVS":"Evolving Skies","CIN":"Crimson Invasion","AOR":"Ancient Origins","RCL":"Rebel Clash","XY":"XY","UNM":"Unified Minds","DAA":"Darkness Ablaze","ROS":"Roaring Skies","FFI":"Furious Fists","STS":"Steam Siege","ASC":"Ascended Heroes","MEG":"Mega Evolution","SCR":"Stellar Crown","LOT":"Lost Thunder","DRX":"Dragons Exalted","NVI":"Noble Victories","SMP":"Sun & Moon Promos","PFL":"Phantasmal Flames","CES":"Celestial Storm","PGO":"Pokémon GO","TWM":"Twilight Masquerade","CRE":"Chilling Reign","SSP":"Surging Sparks","CRZ":"Crown Zenith","UPR":"Ultra Prism","LTR":"Legendary Treasures","UNB":"Unbroken Bonds","PRE":"Prismatic Evolutions","POR":"Perfect Order","CRI":"Chaos Rising","JTG":"Journey Together","WHT":"White Flare","DRI":"Destined Rivals","SUM":"Sun & Moon","PAR":"Paradox Rift","TEU":"Team Up","SIT":"Silver Tempest"};
+const raw=`VS Seeker|PHF|109|Reuse Supporters|EG||Trainers & Energy
+Battle Compressor|PHF|92|Prepare discard combos|EG||Trainers & Energy
+Float Stone|BKT|137|Free retreat|EG||Trainers & Energy
+Guzma|BUS|115|Gust and switch|EG||Trainers & Energy
+N|FCO|105|Draw and disrupt|EG||Trainers & Energy
+Colress|PLS|118|Bench-based draw|EG||Trainers & Energy
+Teammates|PRC|141|Search after knockout|EG||Trainers & Energy
+Mysterious Treasure|FLI|113|Psychic/Dragon search|EG||Trainers & Energy
+Field Blower|GRI|125|Remove Tools/Stadiums|EG||Trainers & Energy
+Rescue Stretcher|GRI|130|Recover Pokémon|EG||Trainers & Energy
+Quick Ball|SSH|179|Basic Pokémon search|EG||Trainers & Energy
+Ultra Ball|MEG|131|Any Pokémon search|EGS||Trainers & Energy
+Level Ball|BST|129|Small Pokémon search|EG||Trainers & Energy
+Nest Ball|SVI|181|Bench a Basic|EG||Trainers & Energy
+Evolution Incense|SSH|163|Evolution search|EG||Trainers & Energy
+Hisuian Heavy Ball|ASR|146|Find prized Basics|EG||Trainers & Energy
+Buddy-Buddy Poffin|TEF|144|Set up small Basics|EGS||Trainers & Energy
+Battle VIP Pass|FST|225|First-turn setup|EG||Trainers & Energy
+Night Stretcher|SFA|61|Immediate recovery|EGS||Trainers & Energy
+Super Rod|PAL|188|Recycle Pokémon/Energy|EG||Trainers & Energy
+Arven|SVI|166|Item and Tool search|EG||Trainers & Energy
+Guzma & Hala|CEC|193|Stadium/Tool/Energy package|EG||Trainers & Energy
+Cynthia & Caitlin|CEC|189|Supporter recovery and draw|EG||Trainers & Energy
+Raihan|EVS|152|Comeback acceleration/search|EG||Trainers & Energy
+Iono|PAL|185|Draw and disrupt|EG||Trainers & Energy
+Marnie|SSH|169|Hand disruption|EG||Trainers & Energy
+Gladion|CIN|95|Retrieve a prized card|EG||Trainers & Energy
+Hex Maniac|AOR|75|Temporary Ability lock|G||Trainers & Energy
+Scoop Up Net|RCL|165|Reuse non-rule-box Pokémon|G||Trainers & Energy
+Reset Stamp|UNM|206|Late-game hand disruption|G||Trainers & Energy
+Professor's Letter|BKT|146|Basic Energy search|EG||Trainers & Energy
+Tag Call|CEC|206|Find TAG TEAM cards|EG||Trainers & Energy
+Muscle Band|XY|121|Increase attack damage|EG||Trainers & Energy
+U-Turn Board|UNM|211|Reusable retreat reduction|EG||Trainers & Energy
+Cape of Toughness|DAA|160|Increase Basic Pokémon HP|EG||Trainers & Energy
+Chaotic Swell|CEC|187|Stadium disruption|EG||Trainers & Energy
+Parallel City|BKT|145|Restrict Bench space|EG||Trainers & Energy
+Irida|ASR|147|Water Pokémon + Item|EG||Trainers & Energy
+Dark Patch|ASR|139|Darkness acceleration|EG||Trainers & Energy
+Metal Saucer|SSH|170|Metal acceleration|EG||Trainers & Energy
+Double Dragon Energy|ROS|97|Two Energy for Dragons|EG||Trainers & Energy
+Counter Energy|CIN|100|Comeback Energy|EG||Trainers & Energy
+Reversal Energy|PAL|192|Evolution comeback Energy|EG||Trainers & Energy
+Speed Lightning Energy|RCL|173|Energy plus draw|EG||Trainers & Energy
+Strong Energy|FFI|104|Increase Fighting damage|EG||Trainers & Energy
+Special Charge|STS|105|Recover Special Energy|EG||Trainers & Energy
+Poké Pad|ASC|198|Non-rule-box Pokémon search|EGS||Trainers & Energy
+Lillie's Determination|MEG|119|Refresh hand; stronger at six Prizes|EGS||Trainers & Energy
+Crispin|SCR|133|Mixed-Energy acceleration|EGS||Trainers & Energy
+Net Ball|LOT|187|Grass Basic/Energy search|EG||Trainers & Energy
+Grotle|BRS|7|Sun-Drenched Shell; search Grass Pokémon|EG|Grass|GLC Pokémon
+Torterra|BRS|8|Evopress; evolution-board attacker|EG|Grass|GLC Pokémon
+Roserade|DRX|15|Le Parfum; search any card|EG|Grass|GLC Pokémon
+Cherrim|BST|8|Spring Bloom; attach Grass Energy|EG|Grass|GLC Pokémon
+Rillaboom|SSH|14|Voltage Beat; accelerate Grass Energy|EG|Grass|GLC Pokémon
+Frosmoth|SSH|64|Ice Dance; attach Water Energy|EG|Water|GLC Pokémon
+Baxcalibur|PAL|60|Super Cold; attach Water Energy|EG|Water|GLC Pokémon
+Octillery|BKT|33|Abyssal Hand; refill hand|EG|Water|GLC Pokémon
+Drizzile|SSH|56|Shady Dealings; search a Trainer|EG|Water|GLC Pokémon
+Inteleon|SSH|58|Shady Dealings; search two Trainers|EG|Water|GLC Pokémon
+Manaphy|BRS|41|Wave Veil; protect Bench from damage|EG|Water|GLC Pokémon
+Kirlia|SIT|68|Refinement; discard and draw|EG|Psychic|GLC Pokémon
+Gallade|ASR|62|Buddy Catch; search Supporters|EG|Psychic|GLC Pokémon
+Malamar|FLI|51|Psychic Recharge; recover Psychic Energy into play|EG|Psychic|GLC Pokémon
+Xatu|PAR|72|Clairvoyant Sense; accelerate and draw|EG|Psychic|GLC Pokémon
+Munkidori|TWM|95|Adrena-Brain; move damage counters|EGS|Psychic|GLC Pokémon
+Giratina|LOT|97|Distortion Door; return from discard and spread|EG|Psychic|GLC Pokémon
+Bibarel|BRS|121|Industrious Incisors; refill hand|EG|Colorless|GLC Pokémon
+Cinccino|SSH|147|Make Do; discard and draw|EG|Colorless|GLC Pokémon
+Oranguru|SUM|113|Instruct; refill a small hand|EG|Colorless|GLC Pokémon
+Fan Rotom|SCR|118|Fan Call; early Colorless setup|EGS|Colorless|GLC Pokémon
+Skwovet|SVI|151|Nest Stash; refresh hand for draw engines|EG|Colorless|GLC Pokémon
+Flaaffy|EVS|55|Dynamotor; recover Lightning Energy into play|EG|Lightning|GLC Pokémon
+Eelektrik|NVI|40|Dynamotor; recover Lightning Energy into play|EG|Lightning|GLC Pokémon
+Zebstrika|LOT|82|Sprint; discard hand and draw|EG|Lightning|GLC Pokémon
+Tapu Koko|SMP|30|Flying Flip; spread damage|EG|Lightning|GLC Pokémon
+Guzzlord|CEC|136|Red Banquet; take an extra Prize|EG|Darkness|GLC Pokémon
+Galarian Moltres|EVS|93|Malevolent Charge / Fiery Wrath; late-game attacker|EG|Darkness|GLC Pokémon
+Liepard|BRS|91|Trade; discard and draw|EG|Darkness|GLC Pokémon
+Toxtricity|PFL|68|Sinister Surge; Darkness acceleration|EGS|Darkness|GLC Pokémon
+Bronzong|PHF|61|Metal Links; recover Metal Energy into play|EG|Metal|GLC Pokémon
+Revavroom|SVI|142|Rumbling Engine; discard Energy and draw|EG|Metal|GLC Pokémon
+Jirachi|TEU|99|Stellar Wish; find Trainers|EG|Metal|GLC Pokémon
+Lunatone|MEG|74|Lunar Cycle; draw with Solrock|EGS|Fighting|GLC Pokémon
+Solrock|MEG|75|Enable Lunatone; attack|EGS|Fighting|GLC Pokémon
+Lucario|SVI|114|Avenging Knuckle; retaliation attacker|EG|Fighting|GLC Pokémon
+Magcargo|CES|24|Smooth Over; place desired card atop deck|EG|Fire|GLC Pokémon
+Charizard|PGO|10|Burn Brightly; double Fire Energy output|EG|Fire|GLC Pokémon
+Gabite|DRX|89|Dragon Call; search Dragon Pokémon|EG|Dragon|GLC Pokémon
+Tatsugiri|TWM|131|Attract Customers; find Supporters|EGS|Dragon|GLC Pokémon
+Tapu Lele-GX|GRI|60|Wonder Tag|E|Psychic|Expanded picks
+Dedenne-GX|UNB|57|Dedechange|E|Lightning|Expanded picks
+Crobat V|DAA|104|Dark Asset|E|Darkness|Expanded picks
+Squawkabilly ex|PAL|169|Squawk and Seize|E|Colorless|Expanded picks
+Regidrago V|SIT|135|Evolves into Regidrago VSTAR|E|Dragon|Expanded picks
+Regidrago VSTAR|SIT|136|Dragon attack toolbox|E|Dragon|Expanded picks
+Shadow Rider Calyrex V|CRE|74|Evolves into Calyrex VMAX|E|Psychic|Expanded picks
+Shadow Rider Calyrex VMAX|CRE|75|Underworld Door|E|Psychic|Expanded picks
+Latias ex|SSP|76|Skyliner|ES|Psychic|Expanded picks
+Radiant Eternatus|CRZ|105|Climactic Gate|E|Dragon|Expanded picks
+Dialga-GX|UPR|100|Timeless-GX; Dragon type|E|Dragon|Expanded picks
+Garbodor|LTR|68|Garbotoxin; Tool-based Ability lock|EG|Psychic|Expanded picks
+Wobbuffet|PHF|36|Bide Barricade|EG|Psychic|Expanded picks
+Marshadow|UNB|81|Resetting Hole; Stadium removal|EG|Psychic|Expanded picks
+Budew|PRE|4|Itchy Pollen; Item lock|EGS|Grass|Expanded picks
+Kyurem|SFA|47|Trifrost; Regidrago attack target|EGS|Dragon|Expanded picks
+Dimension Valley|PHF|93|Psychic attack discount; GLC banned|E||Expanded picks
+Prime Catcher|TEF|157|ACE SPEC gust/switch|ES||Expanded picks
+Secret Box|TWM|163|ACE SPEC search package|ES||Expanded picks
+Forest Seal Stone|SIT|156|VSTAR search; needs Pokémon V|E||Expanded picks
+Dreepy|TWM|128|Dragapult evolution line; Worlds-winning archetype|ES|Dragon|Standard picks
+Drakloak|TWM|129|Recon Directive draw engine|ES|Dragon|Standard picks
+Dragapult ex|TWM|130|Phantom Dive spread attacker; 2026 Worlds champion|ES|Dragon|Standard picks
+Meowth ex|POR|62|Flexible Basic used in top Standard lists|ES|Colorless|Standard picks
+Fezandipiti ex|ASC|142|Comeback draw support|ES|Darkness|Standard picks
+Boss's Orders|MEG|114|Targeted gust Supporter|ES||Standard picks
+Crushing Hammer|POR|71|Energy disruption|ES||Standard picks
+Unfair Stamp|TWM|165|ACE SPEC comeback hand disruption|ES||Standard picks
+Special Red Card|CRI|82|Hand disruption|ES||Standard picks
+Risky Ruins|MEG|127|Stadium pressure in Dragapult|ES||Standard picks
+Abra|MEG|54|Alakazam evolution line|ES|Psychic|Standard picks
+Kadabra|MEG|55|Alakazam evolution line|ES|Psychic|Standard picks
+Alakazam|MEG|56|Core attacker in Worlds runner-up archetype|ES|Psychic|Standard picks
+Dunsparce|JTG|120|Dudunsparce draw-engine Basic|ES|Colorless|Standard picks
+Dudunsparce|TEF|129|Run Away Draw engine|ES|Colorless|Standard picks
+Genesect|SFA|40|Setup support in Alakazam lists|ES|Metal|Standard picks
+Dedenne|SSP|87|Utility attacker in Alakazam|ES|Psychic|Standard picks
+Dawn|PFL|87|Core Supporter engine in Alakazam|ES||Standard picks
+Hilda|WHT|84|High-usage setup/search Supporter|ES||Standard picks
+Lana's Aid|TWM|155|Pokémon and Basic Energy recovery|ES||Standard picks
+Eri|TEF|146|Item disruption Supporter|ES||Standard picks
+Rare Candy|MEG|125|Skip Stage 1 for Stage 2 setup|ES||Standard picks
+Enhanced Hammer|TWM|148|Discard Special Energy|ES||Standard picks
+Sacred Ash|DRI|168|Pokémon recovery|ES||Standard picks
+Air Balloon|ASC|181|Retreat reduction Tool|ES||Standard picks
+Lucky Helmet|TWM|158|Draw Tool|ES||Standard picks
+Battle Cage|PFL|85|Stadium used by Alakazam|ES||Standard picks
+Telepathic Psychic Energy|POR|88|Special Energy for Psychic decks|ES||Standard picks
+Enriching Energy|SSP|191|Special Energy that replaces itself|ES||Standard picks
+Mega Kangaskhan ex|MEG|104|Run Errand draw plus bulky attacker|ES|Colorless|Standard picks
+Crustle|DRI|12|Ex-resistant wall/attacker; Worlds top-6 archetype|ES|Grass|Standard picks
+Lillie's Clefairy ex|JTG|56|Toolbox Basic attacker|ES|Psychic|Standard picks
+Teal Mask Ogerpon ex|TWM|25|Grass acceleration and draw engine|ES|Grass|Standard picks
+Raging Bolt ex|TEF|123|High-damage Basic attacker|ES|Dragon|Standard picks
+Area Zero Underdepths|SCR|131|Expanded Bench for Tera decks|ES||Standard picks
+N's Zorua|JTG|97|N's Zoroark evolution line|ES|Darkness|Standard picks
+N's Zoroark ex|JTG|98|Core attacker/toolbox engine|ES|Darkness|Standard picks
+N's Zekrom|ASC|155|N's Zoroark attacker option|ES|Lightning|Standard picks
+Pecharunt ex|SFA|39|Darkness switching/poison utility|ES|Darkness|Standard picks
+Transformation Tome|CRI|83|N's Zoroark toolbox enabler|ES||Standard picks
+N's PP Up|JTG|153|Energy acceleration for N's Pokémon|ES||Standard picks
+N's Castle|JTG|152|Stadium support for N's Pokémon|ES||Standard picks
+Binding Mochi|PRE|95|Poison damage boost Tool|ES||Standard picks
+Switch|MEG|130|Universal switching Item|ES||Standard picks
+Energy Switch|MEG|115|Move Basic Energy between Pokémon|ES||Standard picks
+Glass Trumpet|SCR|135|Energy acceleration for Tera decks|ES||Standard picks
+Jamming Tower|TWM|153|Tool-suppression Stadium|ES||Standard picks
+Dusknoir|SFA|20|Cursed Blast damage-counter support|ES|Psychic|Standard picks`;
+const cards=raw.trim().split('\n').map((line,i)=>{const [name,set,no,role,formats,type,group]=line.split('|');return{n:i+1,name,set,no,role,formats,type,group};});
+const tbody=document.querySelector('#card-rows');
+const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function tags(f){let out='';if(f.includes('S'))out+='<span class="tag standard">Standard</span> ';if(f.includes('E'))out+='<span class="tag expanded">Expanded</span> ';if(f.includes('G'))out+='<span class="tag glc">GLC</span>';return out;}
+tbody.innerHTML=cards.map(c=>`<tr data-standard="${c.formats.includes('S')}" data-expanded="${c.formats.includes('E')}" data-glc="${c.formats.includes('G')}" data-group="${esc(c.group)}" data-type="${esc(c.type)}"><td><span class="number">${String(c.n).padStart(3,'0')}</span><a href="https://limitlesstcg.com/cards/${encodeURIComponent(c.set)}/${encodeURIComponent(c.no)}">${esc(c.name)}</a><small>${esc(c.group==='GLC Pokémon'?c.type:c.group)}</small></td><td>${esc(setNames[c.set]||c.set)} (${esc(c.set)}) #${esc(c.no)}</td><td>${esc(c.role)}</td><td>${tags(c.formats)}</td></tr>`).join('');
+const rows=[...tbody.querySelectorAll('tr')];
+const search=document.querySelector('#search'),format=document.querySelector('#format'),group=document.querySelector('#group'),type=document.querySelector('#type');
+function filterCards(){
+ const words=search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);let total=0;
+ for(const row of rows){
+  const text=row.textContent.toLowerCase();
+  const show=words.every(word=>text.includes(word))&&(!format.value||row.dataset[format.value]==='true')&&(!group.value||row.dataset.group===group.value)&&(!type.value||row.dataset.type===type.value);
+  row.hidden=!show;if(show)total++;
  }
- document.querySelector('#count').textContent = `${total} of ${rows.length} cards`;
- document.querySelector('#empty').hidden = total !== 0;
+ document.querySelector('#count').textContent=`${total} of ${rows.length} cards`;
+ document.querySelector('#empty').hidden=total!==0;
 }
-search.addEventListener('input', filterCards);
-for(const control of [format, group, type]) control.addEventListener('change', filterCards);
-document.querySelector('#reset').addEventListener('click', () => {for(const control of [search, format, group, type]) control.value = ''; filterCards(); search.focus();});
-document.querySelector('#controls').hidden = false;
+search.addEventListener('input',filterCards);for(const control of [format,group,type])control.addEventListener('change',filterCards);
+document.querySelector('#reset').addEventListener('click',()=>{for(const control of [search,format,group,type])control.value='';filterCards();search.focus();});
 filterCards();
-</script></body></html>
+</script>
+</body>
+</html>
