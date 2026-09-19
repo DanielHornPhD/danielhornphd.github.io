@@ -34,6 +34,7 @@ td a{font-weight:700;text-decoration:none}td small{display:block;color:var(--mut
 .number{display:inline-block;color:#9690a3;width:36px;font-size:.72rem;font-variant-numeric:tabular-nums}
 .tag{display:inline-block;font-size:.69rem;font-weight:650;border-radius:5px;padding:3px 7px;margin:0 3px 5px 0;white-space:nowrap}
 .standard{background:#fff0c9;color:#79570c}.expanded{background:#efe9fb;color:#603bb0}.glc{background:#e6f3ef;color:#236d57}
+.ebaylink{display:inline-block;margin:5px 0 0 36px;padding:3px 7px;border:1px solid #d8d2e2;border-radius:5px;background:#fff;color:#5d3db1;font-size:.69rem;font-weight:700;text-decoration:none;white-space:nowrap}.ebaylink:hover{background:#f5f1fc}
 tbody tr:hover{background:#fcfbff}[hidden]{display:none!important}.empty{padding:35px;text-align:center;color:var(--muted)}
 .benchmarks{margin:26px 0;padding:20px 22px;background:#fff;border:1px solid var(--line);border-radius:14px}
 .benchmarks h2{font-size:1rem;margin:0 0 8px}.benchmarks p{margin:0 0 10px;color:var(--muted);font-size:.88rem}
@@ -83,7 +84,7 @@ caption{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(5
 <details class="sources"><summary>Sources &amp; format notes</summary>
 <p><strong>Standard:</strong> The 2026 rotation took effect April 10, 2026. Regulation mark G rotated; H, I, and J are legal, along with future marks. Older printings of a card can still be legal when an identical current printing is legal. See the <a href="https://www.pokemon.com/uk/pokemon-news/2026-pokemon-tcg-standard-format-rotation-announcement">official rotation announcement</a>. Standard selections here emphasize cards appearing in top-performing 2026 World Championships archetypes rather than every legal card.</p>
 <p><strong>Expanded / GLC:</strong> The existing reference remains a curated selection drawn from published Expanded deck lists, the <a href="https://gymleaderchallenge.com/guide">official GLC guides</a>, and community deck analysis. Expanded refers to the physical BW-on format. Check the <a href="https://gymleaderchallenge.com/ban-list">GLC ban list</a> and linked card pages for current legality and printing details.</p>
-<p>Format labels indicate where a card is useful in this reference; they are not a universal power ranking. Reviewed September 18, 2026.</p>
+<p>Format labels indicate where a card is useful in this reference; they are not a universal power ranking. The “Search my eBay” links search only Dan’s Poke Playables and More for that card, so they remain useful when individual listing IDs change after a sale or relist. Reviewed September 19, 2026.</p>
 </details>
 </main>
 <footer><p>Pokémon Playables · Daniel Horn</p><div class="footlinks"><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/blob/main/pokemon-playables/README.md">Full written reference</a><a href="https://github.com/DanielHornPhD/danielhornphd.github.io/issues">Suggest a correction</a></div><p>Independent community reference. Pokémon and related names belong to their respective owners. Not affiliated with The Pokémon Company or Limitless TCG.</p></footer>
@@ -252,7 +253,8 @@ const cards=raw.trim().split('\n').map((line,i)=>{const [name,set,no,role,format
 const tbody=document.querySelector('#card-rows');
 const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function tags(f){let out='';if(f.includes('S'))out+='<span class="tag standard">Standard</span> ';if(f.includes('E'))out+='<span class="tag expanded">Expanded</span> ';if(f.includes('G'))out+='<span class="tag glc">GLC</span>';return out;}
-tbody.innerHTML=cards.map(c=>`<tr data-standard="${c.formats.includes('S')}" data-expanded="${c.formats.includes('E')}" data-glc="${c.formats.includes('G')}" data-group="${esc(c.group)}" data-type="${esc(c.type)}"><td><span class="number">${String(c.n).padStart(3,'0')}</span><a href="https://limitlesstcg.com/cards/${encodeURIComponent(c.set)}/${encodeURIComponent(c.no)}">${esc(c.name)}</a><small>${esc(c.group==='GLC Pokémon'?c.type:c.group)}</small></td><td>${esc(setNames[c.set]||c.set)} (${esc(c.set)}) #${esc(c.no)}</td><td>${esc(c.role)}</td><td>${tags(c.formats)}</td></tr>`).join('');
+function ebayUrl(c){const q=`${c.name} ${c.set} ${c.no}`;return `https://www.ebay.com/sch/i.html?_ssn=dans_poke_playables_n_more&store_name=danspokeplayablesandmore&_nkw=${encodeURIComponent(q)}`;}
+tbody.innerHTML=cards.map(c=>`<tr data-standard="${c.formats.includes('S')}" data-expanded="${c.formats.includes('E')}" data-glc="${c.formats.includes('G')}" data-group="${esc(c.group)}" data-type="${esc(c.type)}"><td><span class="number">${String(c.n).padStart(3,'0')}</span><a href="https://limitlesstcg.com/cards/${encodeURIComponent(c.set)}/${encodeURIComponent(c.no)}">${esc(c.name)}</a><small>${esc(c.group==='GLC Pokémon'?c.type:c.group)}</small><a class="ebaylink" href="${ebayUrl(c)}" target="_blank" rel="noopener">Search my eBay ↗</a></td><td>${esc(setNames[c.set]||c.set)} (${esc(c.set)}) #${esc(c.no)}</td><td>${esc(c.role)}</td><td>${tags(c.formats)}</td></tr>`).join('');
 const rows=[...tbody.querySelectorAll('tr')];
 const search=document.querySelector('#search'),format=document.querySelector('#format'),group=document.querySelector('#group'),type=document.querySelector('#type');
 function filterCards(){
