@@ -253,7 +253,7 @@ const cards=raw.trim().split('\n').map((line,i)=>{const [name,set,no,role,format
 const tbody=document.querySelector('#card-rows');
 const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function tags(f){let out='';if(f.includes('S'))out+='<span class="tag standard">Standard</span> ';if(f.includes('E'))out+='<span class="tag expanded">Expanded</span> ';if(f.includes('G'))out+='<span class="tag glc">GLC</span>';return out;}
-function ebayUrl(c){const q=`${c.name} ${c.set} ${c.no}`;return `https://www.ebay.com/sch/i.html?_ssn=dans_poke_playables_n_more&store_name=danspokeplayablesandmore&_nkw=${encodeURIComponent(q)}`;}
+function ebayUrl(c){return `https://www.ebay.com/sch/i.html?_ssn=dans_poke_playables_n_more&store_name=danspokeplayablesandmore&_nkw=${encodeURIComponent(c.name)}`;}
 tbody.innerHTML=cards.map(c=>`<tr data-standard="${c.formats.includes('S')}" data-expanded="${c.formats.includes('E')}" data-glc="${c.formats.includes('G')}" data-group="${esc(c.group)}" data-type="${esc(c.type)}"><td><span class="number">${String(c.n).padStart(3,'0')}</span><a href="https://limitlesstcg.com/cards/${encodeURIComponent(c.set)}/${encodeURIComponent(c.no)}">${esc(c.name)}</a><small>${esc(c.group==='GLC Pokémon'?c.type:c.group)}</small><a class="ebaylink" href="${ebayUrl(c)}" target="_blank" rel="noopener">Search my eBay ↗</a></td><td>${esc(setNames[c.set]||c.set)} (${esc(c.set)}) #${esc(c.no)}</td><td>${esc(c.role)}</td><td>${tags(c.formats)}</td></tr>`).join('');
 const rows=[...tbody.querySelectorAll('tr')];
 const search=document.querySelector('#search'),format=document.querySelector('#format'),group=document.querySelector('#group'),type=document.querySelector('#type');
