@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#6d28d9">
+  <meta name="description" content="Enter a dollar amount, instantly add 97 cents, and copy the total.">
+  <title>Plus 97¢</title>
+  <style>
+    :root { color-scheme: light; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #21162f; background: #f7f4fb; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100svh; display: grid; place-items: center; padding: 24px; }
+    main { width: min(100%, 440px); background: #fff; padding: 32px; border: 1px solid #e8e0f0; border-radius: 24px; box-shadow: 0 12px 42px #3920510c; }
+    h1 { margin: 0 0 8px; font-size: 32px; letter-spacing: -1px; }
+    .intro { margin: 0 0 28px; color: #6b6077; line-height: 1.5; }
+    label { display: block; margin: 0 0 8px; font-size: 14px; font-weight: 650; }
+    .field { position: relative; }
+    .dollar { position: absolute; left: 18px; top: 50%; transform: translateY(-50%); color: #82758f; font-size: 24px; pointer-events: none; }
+    input { width: 100%; min-width: 0; border: 1px solid #d9d0e5; border-radius: 12px; padding: 15px 16px 15px 42px; font: inherit; font-size: 28px; font-variant-numeric: tabular-nums; color: inherit; background: #fff; }
+    input::placeholder { color: #aaa0b5; }
+    input:focus { outline: 3px solid #ddd0fa; border-color: #6d28d9; }
+    input[aria-invalid="true"] { border-color: #b42318; }
+    .error { color: #b42318; font-size: 13px; min-height: 20px; margin: 7px 0 15px; }
+    .result { padding: 20px; background: #f4eefc; border-radius: 16px; }
+    .result label { color: #675277; }
+    .result input { border: 0; background: transparent; padding-top: 4px; padding-bottom: 4px; font-size: clamp(25px, 7vw, 38px); font-weight: 700; color: #5b21b6; border-radius: 6px; cursor: text; }
+    .result .dollar { color: #8d66bb; }
+    button { width: 100%; margin-top: 20px; padding: 16px; border: 0; border-radius: 12px; font: inherit; font-weight: 650; font-size: 17px; background: #6d28d9; color: #fff; cursor: pointer; transition: background .15s; }
+    button:hover:enabled { background: #5b21b6; }
+    button:focus-visible { outline: 3px solid #b79ae8; outline-offset: 3px; }
+    button:disabled { background: #e5dced; color: #897794; cursor: default; }
+    .status { min-height: 20px; margin: 12px 0 0; text-align: center; color: #675277; font-size: 13px; }
+    .hint { margin: 18px 0 0; text-align: center; font-size: 12px; color: #82758f; }
+    @media (max-width: 400px) { body { padding: 16px; } main { padding: 24px; } .result { padding: 16px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Plus 97¢</h1>
+    <p class="intro">Enter an amount. Get the total. Copy it.</p>
+    <form id="calculator" novalidate>
+      <label for="amount">Dollar amount</label>
+      <div class="field">
+        <span class="dollar" aria-hidden="true">$</span>
+        <input id="amount" type="text" inputmode="decimal" placeholder="0.00" autocomplete="off" spellcheck="false" autofocus aria-describedby="error">
+      </div>
+      <p id="error" class="error" aria-live="polite"></p>
+      <div class="result">
+        <label for="total">Your amount + $0.97</label>
+        <div class="field">
+          <span class="dollar" aria-hidden="true">$</span>
+          <input id="total" type="text" readonly placeholder="—" aria-label="Total including 97 cents">
+        </div>
+      </div>
+      <button id="copy" type="submit" disabled>Copy total</button>
+      <p id="status" class="status" role="status"></p>
+      <p class="hint">Enter to copy · Copies the number without the $</p>
+    </form>
+  </main>
+  <script>
+    const amount = document.getElementById('amount');
+    const total = document.getElementById('total');
+    const copy = document.getElementById('copy');
+    const error = document.getElementById('error');
+    const status = document.getElementById('status');
+    let feedbackTimer;
+
+    function add97(raw) {
+      const value = raw.trim().replace(/^\$\s*/, '');
+      const valid = /^(?:\d+(?:\.\d{0,2})?|\.\d{1,2})$/.test(value)
+        || /^\d{1,3}(?:,\d{3})+(?:\.\d{0,2})?$/.test(value);
+      if (!valid) return null;
+      const [dollars, fraction = ''] = value.replaceAll(',', '').split('.');
+      const cents = BigInt(dollars || '0') * 100n + BigInt(fraction.padEnd(2, '0')) + 97n;
+      return (cents / 100n).toString() + '.' + (cents % 100n).toString().padStart(2, '0');
+    }
+
+    function update() {
+      clearTimeout(feedbackTimer);
+      copy.textContent = 'Copy total';
+      status.textContent = '';
+      const result = amount.value.trim() ? add97(amount.value) : null;
+      const invalid = amount.value.trim() !== '' && result === null;
+      amount.setAttribute('aria-invalid', String(invalid));
+      error.textContent = invalid ? 'Enter a positive amount with up to 2 decimal places.' : '';
+      total.value = result ?? '';
+      copy.disabled = result === null;
+    }
+
+    function selectTotal() {
+      total.focus();
+      total.select();
+      total.setSelectionRange(0, total.value.length);
+    }
+
+    async function copyTotal(event) {
+      event.preventDefault();
+      const value = total.value;
+      if (!value) return;
+      let copied = false;
+      try {
+        await navigator.clipboard.writeText(value);
+        copied = true;
+      } catch {
+        selectTotal();
+        try { copied = document.execCommand('copy'); } catch { copied = false; }
+      }
+      if (total.value !== value) return;
+      clearTimeout(feedbackTimer);
+      if (copied) {
+        copy.textContent = 'Copied!';
+        status.textContent = value + ' copied';
+        amount.focus();
+        amount.select();
+        feedbackTimer = setTimeout(() => { copy.textContent = 'Copy total'; status.textContent = ''; }, 1800);
+      } else {
+        selectTotal();
+        status.textContent = 'Total selected. Press Ctrl+C or ⌘C to copy.';
+      }
+    }
+
+    amount.addEventListener('input', update);
+    total.addEventListener('click', selectTotal);
+    document.getElementById('calculator').addEventListener('submit', copyTotal);
+    update();
+  </script>
+</body>
+</html>
